@@ -1,16 +1,29 @@
-# This is a sample Python script.
+import pandas as pd
+out = pd.read_csv(r'C:\Users\bhoomika\Downloads\output_file.csv')
+recipe = pd.read_excel(r'C:\Users\bhoomika\Downloads\recipe.xlsx')
+#print (out)
+#print(recipe.iloc[:])
+#keys=recipe.iloc[0:].tolist()
+out.drop(["page_num","transaction_num"], axis=1, inplace=True)
+row1=out.columns.tolist()
+print(row1)
+recipe.drop(["Page"], axis=1, inplace=True)
+print(recipe)
+col1=recipe["Key"].tolist()
+print(len(col1))
+comp1=[]
+for x in row1:
+    for y in col1:
+        if x == y:
+            comp1.append(x)
+print(comp1)
+print(len(comp1))
+print(len(comp1)/len(col1)*100) #this the completion accuracy
+##this is the second part##
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-#testing github
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('internLearning')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+
